@@ -1,0 +1,40 @@
+<section id="letters">
+  <div class="grid-container">
+    <div class="close"></div>
+    <div class="grid-x align-center-middle v-align menu">
+      <div class="cell small-10 medium-8 title-bar">
+        <div class="grid-x align-center-middle box">
+          <div class="cell item">
+            <select [(ngModel)]="currentPoem" (change)="load()" id="select">
+              <option
+                *ngFor="let poem of poemList"
+                [value]="poem.id"
+                [selected]="poem.id == currentPoem"
+              >
+                {{ poem.title }}
+              </option>
+            </select>
+            <div class="icon-select">></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bond"></div>
+    <div id="letter" class="grid-x align-center c-section">
+      <div class="cell small-10 letter-content">
+        <span class="rectangle"></span>
+        <div class="grid-y align-center-middle box grid-margin-y grid-margin-x">
+          <div class="cell content">
+            <div
+              class="grid-x grid-margin-y grid-margin-x grid-padding-y grid-padding-x letter-items"
+            >
+              <div class="cell letter-title" [innerHTML]="getPoem?.title"></div>
+              <div class="cell letter-text" [innerHTML]="getPoem?.poem"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</section>

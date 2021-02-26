@@ -1,0 +1,40 @@
+/*Media queries*/
+
+@mixin mq($for) {
+  @if $for == mobile {
+    @media only screen and (max-width: 767px) {
+      @content;
+    }
+  } @else if $for == tablet {
+    @media only screen and (min-width: 767px) {
+      @content;
+    }
+  } @else if $for == desktop {
+    @media only screen and (min-width: 1024px) {
+      @content;
+    }
+  } @else if $for == xdesktop {
+    @media only screen and (min-width: 1440px) {
+      @content;
+    }
+  }
+}
+
+/*Functions*/
+
+@mixin abs_center($width, $height) {
+  margin: auto;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: $width;
+  height: $height;
+}
+
+@mixin flex_center() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -1,0 +1,127 @@
+@import "vars";
+@import "mixins";
+
+#brands {
+  //margin-top: 100px;
+
+  @keyframes MoveUpDown {
+    0%,
+    100% {
+      bottom: 0;
+    }
+    50% {
+      bottom: 25px;
+    }
+  }
+
+  article {
+    border: 2px dashed black;
+    position: relative;
+    color: white;
+
+    @include mq(tablet) {
+      height: 350px;
+    }
+
+    @include mq(mobile) {
+      color: white !important;
+    }
+
+    &:not(.active) {
+      color: $c-black;
+    }
+
+    .logo {
+      @include abs_center(auto, auto);
+      z-index: 1;
+      max-width: 75%;
+    }
+
+    .arrow {
+      @include abs_center(40px, auto);
+      cursor: url("/assets/icons/icon-hand.png"), auto;
+      left: inherit;
+      top: 85%;
+      bottom: 10px;
+      right: 10px;
+      transition: $trans;
+      z-index: 4;
+      animation: MoveUpDown 1s linear infinite;
+
+      @include mq(mobile) {
+        display: none;
+      }
+
+      &.white {
+        display: none;
+        transform: rotate(180deg);
+      }
+    }
+
+    .mask {
+      @include abs_center(100%, 100%);
+      display: block;
+      background: rgba($c-black, 0.75);
+      z-index: 2;
+
+      @include mq(tablet) {
+        opacity: 0;
+      }
+    }
+
+    .title {
+      font-weight: bold;
+      font-size: 1.25em;
+      position: relative;
+      z-index: 3;
+
+      @include mq(mobile) {
+        margin-bottom: 60px;
+      }
+
+      .line-brand {
+        @include abs_center(50%, 2px);
+        background: white;
+        top: inherit;
+        right: inherit;
+      }
+    }
+
+    .content-brand {
+      @include mq(tablet) {
+        height: 95%;
+        align-content: flex-end;
+        opacity: 0;
+      }
+
+      .cell {
+        margin-top: 10px;
+        z-index: 3;
+
+        @include mq(tablet) {
+          padding-right: 50px;
+        }
+
+        a {
+          text-decoration: none;
+          font-weight: bold;
+          color: white;
+        }
+
+        &:last-of-type {
+          margin-bottom: 10px;
+        }
+
+        .square {
+          width: 5px;
+          height: 5px;
+          background: white;
+          display: inline-block;
+          position: relative;
+          top: -3px;
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+}

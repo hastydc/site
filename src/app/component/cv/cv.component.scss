@@ -1,0 +1,74 @@
+@import "vars";
+@import "mixins";
+
+#cv {
+  .hidden {
+    display: none !important;
+  }
+
+  .cv-line {
+    background: black;
+    height: 5px;
+    margin: 20px auto;
+    display: block;
+    width: 50%;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .tech {
+    position: relative;
+
+    img {
+      @include abs_center(auto, auto);
+      max-width: 75%;
+      max-height: 75%;
+    }
+
+    .box {
+      min-height: 100px;
+    }
+
+    .name {
+      text-align: center;
+      margin-top: 10px;
+    }
+  }
+
+  .experience {
+    border: 2px dashed black;
+
+    .site {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+  }
+
+  .content-ac {
+    @include mq(tablet) {
+      height: 95%;
+      align-content: flex-end;
+    }
+  }
+
+  .square {
+    width: 5px;
+    height: 5px;
+    background: $c-black;
+    display: inline-block;
+    position: relative;
+    top: -3px;
+    margin-right: 5px;
+  }
+
+  .ac {
+    color: white;
+    background: black;
+    border: 2px dashed white;
+  }
+}

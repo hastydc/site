@@ -1,0 +1,104 @@
+@import "vars";
+@import "mixins";
+
+#play {
+  h1 {
+    text-align: center;
+  }
+
+  .end,
+  .content {
+    display: none;
+  }
+
+  .btn {
+    text-align: center;
+    transition: $trans;
+    border: 2px solid black;
+    height: 27px;
+    cursor: pointer;
+    padding: 0px 20px;
+    max-width: 140px;
+    margin: 25px auto 25px 0;
+
+    &:hover {
+      background: black;
+      color: white;
+    }
+  }
+
+  .table {
+    .cell {
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+
+      &.field {
+        position: relative;
+        border: 1px solid black;
+
+        input {
+          text-align: center;
+          border: 0px;
+          outline: none;
+          @include abs_center(100%, 100%);
+        }
+      }
+    }
+  }
+
+  .one,
+  .two,
+  .three,
+  .four,
+  .five {
+    &:after {
+      @include abs_center(100%, 100%);
+      margin: auto;
+      font-weight: bold;
+    }
+  }
+
+  .one {
+    &:after {
+      content: "1";
+      left: -30px;
+      top: -8px;
+    }
+  }
+
+  .two {
+    &:after {
+      content: "2";
+      top: -45px;
+      left: 3px;
+    }
+  }
+
+  .three {
+    &:after {
+      content: "3";
+      top: 30px;
+      left: 3px;
+    }
+  }
+
+  .four {
+    &:before {
+      @include abs_center(100%, 100%);
+      content: "4";
+      margin: auto;
+      font-weight: bold;
+      top: -5px;
+      left: -30px;
+    }
+  }
+
+  .five {
+    &:after {
+      top: -45px;
+      left: 3px;
+      content: "5";
+    }
+  }
+}

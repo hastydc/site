@@ -1,0 +1,103 @@
+@import "vars";
+@import "mixins";
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: auto;
+  font-family: $f-ss;
+}
+
+* {
+  outline: none !important;
+}
+
+.v-align {
+  height: 100vh;
+}
+
+.box {
+  border-top: 10px solid $c-black;
+  border-bottom: 10px solid $c-black;
+  position: relative;
+  min-height: 100px;
+  box-shadow: $bs;
+  background: white;
+
+  &:after,
+  &:before {
+    content: "";
+    top: 0;
+    width: 10px;
+    height: 100%;
+    position: absolute;
+    background: black;
+  }
+
+  &:after {
+    right: -10px;
+  }
+
+  &:before {
+    left: -10px;
+  }
+}
+
+.mail {
+  position: fixed;
+  width: 50px;
+  height: auto;
+  display: block;
+  bottom: 30px;
+  right: 30px;
+  cursor: url("/assets/icons/icon-hand.png"), auto;
+
+  @include mq(tablet) {
+    width: 120px;
+  }
+}
+
+.c-section {
+  margin-top: 71vh;
+  display: none;
+
+  .small-10 {
+    position: relative;
+  }
+
+  @include mq(tablet) {
+    margin-top: 81vh;
+  }
+
+  .content {
+    opacity: 0;
+  }
+
+  .rectangle {
+    @include abs_center(30px, 10px);
+    top: -25px;
+    background: $c-black;
+    bottom: inherit;
+  }
+}
+
+select {
+  border: 0;
+  text-align-last: center;
+  font-size: 32px;
+  font-weight: bold;
+  background: transparent;
+  cursor: url("/assets/icons/icon-hand.png"), auto;
+  appearance: none;
+  z-index: 1;
+  position: relative;
+}
+
+.bond {
+  @include abs_center(10px, 0vh);
+  background: $c-black;
+  z-index: -1;
+  top: 70px;
+  bottom: inherit;
+}

@@ -1,0 +1,140 @@
+@import "vars";
+@import "mixins";
+
+#projects {
+  /*display: block;
+  margin-top: 100px;
+
+  &.c-section {
+    .content {
+      opacity: 1 !important;
+    }
+  }*/
+
+  .p-menu {
+    text-align: center;
+    cursor: url("/assets/icons/icon-hand.png"), auto;
+    margin: 25px auto;
+
+    .cell {
+      transition: $trans;
+      position: relative;
+
+      &:hover,
+      &.active {
+        color: $c-red;
+
+        &:after {
+          opacity: 1;
+        }
+      }
+
+      &:after {
+        @include abs_center(0, 0);
+        transition: $trans;
+        content: "";
+        opacity: 0;
+        border-top: 10px solid transparent;
+        border-bottom: 10px solid transparent;
+        border-left: 10px solid $c-red;
+        right: inherit;
+        left: 25px;
+
+        @include mq(tablet) {
+          bottom: -10px;
+          top: inherit;
+          left: 0;
+          right: 0;
+          border-left: 10px solid transparent;
+          border-right: 10px solid transparent;
+          border-bottom: 10px solid $c-red;
+        }
+      }
+    }
+  }
+
+  .rectangle {
+    top: -10px;
+  }
+
+  .p-content {
+    display: none;
+  }
+
+  .desc {
+    background: black;
+    border: 2px dashed white;
+    text-align: center;
+    color: white;
+  }
+
+  .cv-line {
+    background: black;
+    height: 5px;
+    margin: 20px auto;
+    display: block;
+    width: 55%;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 1.5em;
+    margin-bottom: 0;
+    padding-bottom: 0;
+    text-align: center;
+  }
+
+  .tech {
+    position: relative;
+
+    img {
+      @include abs_center(auto, auto);
+      max-width: 75%;
+      max-height: 75%;
+    }
+
+    .box {
+      min-height: 100px;
+    }
+
+    .name {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 0.9em;
+    }
+  }
+
+  .p-time {
+    height: 150px;
+    text-align: center;
+    font-weight: bold;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      max-height: 80%;
+    }
+  }
+
+  .p-btn {
+    text-align: center;
+    position: relative;
+    height: 150px;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 50px;
+
+    img {
+      display: block;
+      margin: auto;
+      max-width: 75%;
+      max-height: 75%;
+    }
+
+    span {
+      display: block;
+      position: relative;
+      margin-top: 10px;
+    }
+  }
+}

@@ -1,0 +1,122 @@
+@import "vars";
+@import "mixins";
+
+#home {
+  position: relative;
+  padding-bottom: 4em;
+
+  @include mq(tablet) {
+    height: 100vh;
+    overflow: hidden;
+  }
+
+  .line {
+    @include abs_center(55%, 5px);
+    content: "";
+    background: black;
+
+    &:first-of-type {
+      top: inherit;
+    }
+
+    &:last-of-type {
+      bottom: inherit;
+    }
+  }
+
+  .item {
+    text-align: center;
+    font-family: $f-bt;
+    font-size: 1em;
+    line-height: 3.2em;
+    transition: $trans;
+    height: 50px;
+    position: relative;
+
+    @include mq(tablet) {
+      font-size: 1.5em;
+      line-height: 3.9em;
+      height: 90px;
+    }
+
+    &:hover {
+      &:not(.active) {
+        color: $c-red;
+        cursor: url("/assets/icons/icon-hand.png"), auto;
+
+        @include mq(tablet) {
+          font-size: 2em;
+          line-height: 2.85em;
+        }
+
+        &:after {
+          opacity: 1;
+        }
+      }
+    }
+
+    &:after {
+      @include abs_center(0, 0);
+      transition: $trans;
+      content: "";
+      opacity: 0;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+      border-left: 10px solid $c-red;
+      right: inherit;
+      left: 20%;
+    }
+  }
+
+  .close {
+    height: 100%;
+    width: 15%;
+    position: absolute;
+    margin: auto;
+    right: 3%;
+    display: none;
+
+    &:hover {
+      cursor: url("/assets/icons/icon-hand.png"), auto;
+
+      &:after,
+      &:before {
+        background: red;
+      }
+    }
+
+    @include mq(tablet) {
+      width: 20%;
+      right: 0%;
+    }
+
+    &:after,
+    &:before {
+      @include abs_center(10px, 50%);
+      content: "";
+      background: $c-black;
+      transition: $trans;
+    }
+
+    &:after {
+      transform: rotate(45deg);
+    }
+
+    &:before {
+      transform: rotate(-45deg);
+    }
+  }
+
+  .grid-x {
+    z-index: 3;
+    position: relative;
+  }
+
+  .bond {
+    @include abs_center(10px, 0vh);
+    background: $c-black;
+    z-index: -1;
+    top: 70px;
+    bottom: inherit;
+  }
+}

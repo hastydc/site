@@ -1,0 +1,65 @@
+@import "vars";
+@import "mixins";
+
+#letters {
+  position: relative;
+  min-height: 100vh;
+  padding-bottom: 30px;
+  box-sizing: border-box;
+
+  .item {
+    position: relative;
+  }
+
+  h1 {
+    font-family: arial;
+    font-weight: bold;
+  }
+
+  .cell {
+    font-family: arial;
+  }
+
+  .title-bar {
+    margin-top: 32px;
+  }
+
+  .letter-content {
+    width: auto;
+    max-width: 85%;
+  }
+
+  .letter-items {
+    flex-direction: column;
+  }
+
+  .letter-title {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    font-weight: bold;
+    font-size: 32px;
+  }
+
+  .icon-select {
+    height: 100%;
+    width: 6%;
+    position: absolute;
+    margin: auto;
+    right: 3%;
+    display: block;
+    top: 0;
+    bottom: 0;
+    font-weight: bold;
+    font-size: 64px;
+    transform: rotate(90deg);
+
+    &:hover {
+      cursor: url("/assets/icons/icon-hand.png"), auto;
+
+      &:after,
+      &:before {
+        background: red;
+      }
+    }
+  }
+}
